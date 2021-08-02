@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>RFWebApp</title>
+    <script src="tamarin/polyfills.js"></script>
+  </head>
+  <body style="text-align: center">
+    <canvas id="unity-canvas" style="width: 1280px; height: 720px; background: #FCB729"></canvas>
+    <script src="Build/MakingPart.loader.js"></script>
+    <script>
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/MakingPart.data",
+        frameworkUrl: "Build/MakingPart.framework.js",
+        codeUrl: "Build/MakingPart.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "RFWebApp",
+        productVersion: "0.1",
+      })
+      .then((instance) =>
+      {
+        unityInstance = instance;
+      })
+      .catch((message) => { console.warn(message); });
+    </script>
+  </body>
+</html>
